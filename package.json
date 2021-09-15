@@ -4,12 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
+    "clean": "rimraf out && rimraf build",
+    "build": "next build && next export",
+    "deploy": "firebase deploy --only hosting",
     "start": "next start"
   },
   "dependencies": {
     "next": "^11.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "rimraf": "^3.0.2"
   }
 }
