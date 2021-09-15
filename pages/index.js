@@ -61,10 +61,6 @@ export default function Home() {
             align-items: center;
           }
 
-          footer img {
-            margin-left: 0.5rem;
-          }
-
           footer a {
             cursor: pointer;
             display: flex;
@@ -108,15 +104,6 @@ export default function Home() {
           .description {
             line-height: 1.5;
             font-size: 1.5rem;
-          }
-
-          code {
-            background: #fafafa;
-            border-radius: 5px;
-            padding: 0.75rem;
-            font-size: 1.1rem;
-            font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
           }
 
           .grid {
@@ -167,6 +154,14 @@ export default function Home() {
             .grid {
               width: 100%;
               flex-direction: column;
+            }
+          }
+          @media (max-width: 411px) {
+            main {
+              margin: 0 auto;
+            }
+            .title {
+              font-size: 2.5rem;
             }
           }
         `}</style>
