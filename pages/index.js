@@ -18,13 +18,31 @@ export default function Home() {
           </div>
           <a className="pixel-button" href="https://opensea.io/collection/foxtalesrpg">Buy on Open Sea</a>
           <p className="description">
-          Fox Tales - RPG Adventure comes with an exclusive collection. <br />Each character is a gateway to the community and the world of Fox Tales - RPG Adventure.
-          </p>
-          <h1 className="subtitle">
-            Coming Soon!
-          </h1>
-        </main>
+          It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure.
+          Fox Tales - RPG Adventure comes with an exclusive collection. 
+          Each of the characters is unique generated on the Ethereum blockchain. 
+          Each character is a gateway to the community and the world of Fox Tales - RPG Adventure.
 
+          Character stories, dungeons and events in this world will progressively evolve after interacting with the community.
+          In an RPG Adventure. It will be a creative, artistic and playable project for all people who have a NFT on.
+          Be the fox you want to be.
+          </p>
+        </main>
+        <section className="roadmap">
+          <h2 className="content-title">
+            Roadmap
+          </h2>
+          <p><b>STAGE 1</b></p>
+          <p>Project Concept</p>
+          <p>Determine Game Mechanics</p>
+          <p>Characters Design Concepts</p>
+          <p>Beta Website Launch</p>
+          <p>Social Media Presence <b>(current...)</b></p>
+          <p>Instagram/Facebook Ads</p>
+          <h2 className="subtitle">
+            Coming Soon!
+          </h2>
+        </section>
         <footer>
           <a
             href="https://www.linkedin.com/in/danielsotoguillen/"
@@ -64,6 +82,18 @@ export default function Home() {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+          }
+          .roadmap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+          }
+
+          .content-title {
+            margin: 0;
+            line-height: 1.11;
+            font-size: 2.5rem;
           }
 
           footer {
@@ -107,7 +137,8 @@ export default function Home() {
           .subtitle {
             margin: 0;
             line-height: 1.11;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
+            margin: 1rem;
           }
 
           .title,
@@ -118,6 +149,8 @@ export default function Home() {
           .description {
             line-height: 1.5;
             font-size: 1.5rem;
+            width: 85%;
+            text-align: justify;
           }
 
           .grid {
