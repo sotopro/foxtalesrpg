@@ -4,20 +4,22 @@ export default function Home() {
   return (
     <Page>
       <div className="container">
-        <Head>
+        <div className="home-slider" />
+        <Head className="header">
           <title>Fox Tales - Pixel RPG Adventure - Play to Earn</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main>
-          <h1 className="title">
-            Welcome to <a href="https://opensea.io/collection/foxtalesrpg">Fox Tales - RPG Adventure!</a>
-          </h1>
-
+          <div className="header">
+            <h1 className="title">
+              Welcome to <a href="https://opensea.io/collection/foxtalesrpg">Fox Tales - RPG Adventure!</a>
+            </h1>
+          </div>
+          <a className="pixel-button" href="https://opensea.io/collection/foxtalesrpg">Buy on Open Sea</a>
           <p className="description">
           Fox Tales - RPG Adventure comes with an exclusive collection. <br />Each character is a gateway to the community and the world of Fox Tales - RPG Adventure.
           </p>
-          <img src="/original-fox-000-social-network.png" alt="Fox Tales RPG Adventure" />
           <h1 className="subtitle">
             Coming Soon!
           </h1>
@@ -35,12 +37,24 @@ export default function Home() {
         
         <style jsx>{`
           .container {
-            min-height: 100vh;
+            box-sizing:border-box;
             padding: 0 0.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+          }
+          .header{
+            position: absolute;
+            top: 5%;
+          }
+          .home-slider{
+            width:100%;
+            min-height: 650px;
+            background-image: url("/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg");
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-size: auto;
           }
 
           main {
@@ -149,7 +163,38 @@ export default function Home() {
           .logo {
             height: 1em;
           }
-
+          .pixel-button {
+            cursor: pointer;
+            width: 220px;
+            height: 60px;
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 60px;
+            letter-spacing: 2px;
+            margin: 20px;
+            transition: 0.5s;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid;
+            border-color: #37946e;
+          }
+          .pixel-button:hover {
+            background: #37946e url('/pixel.png');
+            transition-delay: 0.8s;
+            background-size: 220px;
+            color: #fff;
+            animation: animate 0.8s steps(8) forwards;
+          }
+          @keyframes animate {
+            0% {
+              background-position-y: 0;
+            }
+            100% {
+              background-position-y: -480px;
+            }
+          }
           @media (max-width: 600px) {
             .grid {
               width: 100%;
@@ -157,7 +202,18 @@ export default function Home() {
             }
           }
           @media (max-width: 411px) {
+            .home-slider{
+              margin-top: 9rem;
+              min-height: 300px;
+              background-size: contain;
+              background-image: url("/original-fox-000-social-network.png");
+
+            }
+            .header {
+                width: 95%;
+            }
             main {
+              padding: 0;
               margin: 0 auto;
             }
             .title {
