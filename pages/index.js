@@ -34,7 +34,7 @@ export default function Home() {
               Welcome to <a href="https://opensea.io/collection/foxtalesrpg" onClick={() => handleClick('title')}>Fox Tales - RPG Adventure!</a>
             </h1>
           </div>
-          <button id="opensea-button" className="pixel-button" href="https://opensea.io/collection/foxtalesrpg"  onClick={() => handleClick('button')}>Buy on Open Sea</button>
+          <button id="opensea-button" className="pixel-button" onClick={() => handleClick('button')}><a href="https://opensea.io/collection/foxtalesrpg" >Buy on Open Sea</a></button>
           <p className="description">
           It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure.
           Fox Tales - RPG Adventure comes with an exclusive collection. 
