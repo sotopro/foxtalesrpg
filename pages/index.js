@@ -10,8 +10,14 @@ export default function Home() {
       <div className="container">
         <div className="home-slider" />
         <Head className="header">
-          <title>Fox Tales - Pixel RPG Adventure - Play to Earn</title>
+          <title>Fox Tales - Pixel RPG Adventure - NFT Play to Earn</title>
+          <meta content="Fox Tales - Pixel RPG Adventure - NFT Play to Earn" property="og:title" />
+          <meta content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" property="og:description" />
+          <meta content="/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg" property="og:image" />
           <link rel="icon" href="/favicon.ico" />
+          <link href="https://foxtalesrpg.com/" rel="canonical" />
+          <meta content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" name="description"></meta>
+          <link rel="preload" as="image" href="/original-fox-000-social-network.png" />
         </Head>
 
         <main>
