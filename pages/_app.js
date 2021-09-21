@@ -3,14 +3,18 @@ import Script from 'next/script'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
 import * as gtm from '../lib/gtm'
+import * as fbq from '../lib/fpixel'
 
 
 const App = ({ Component, pageProps }) => {
+  
   const router = useRouter()
   useEffect(() => {
+    fbq.pageview()
     const handleRouteChange = (url) => {
       gtag.gtaPageview(url)
       gtm.gtmPageView(url)
+      fbq.pageview();
     }
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
@@ -20,7 +24,22 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', ${fbq.FB_PIXEL_ID});
+          `,
+        }}
+      />
       <Script
         dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
