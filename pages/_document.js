@@ -6,6 +6,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+        <meta name="facebook-domain-verification" content={process.env.NEXT_DOMAIN_VERIFICATION} />
           <noscript>
             <img
               height="1"
