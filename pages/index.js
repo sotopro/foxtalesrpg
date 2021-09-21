@@ -3,7 +3,6 @@ import Page from '../components/Page'
 import * as fbq from '../lib/fpixel'
 export default function Home() {
   const handleClick = (value) => {
-    console.log(value)
     fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
   }
   return (
