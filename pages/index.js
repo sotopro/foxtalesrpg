@@ -11,15 +11,23 @@ export default function Home() {
         <div className="home-slider" />
         <Head className="header">
           <title>Fox Tales - Pixel RPG Adventure - NFT Play to Earn</title>
+          <meta content="https://foxtalesrpg.com" property="og:url" />
+          <meta content="144324121236465" property="fb:app_id" />
           <meta content="Fox Tales - Pixel RPG Adventure - NFT Play to Earn" property="og:title" />
           <meta content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" property="og:description" />
-          <meta content="/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg" property="og:image" />
+          <meta content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg" property="og:image" />
+          <meta content="Fox Tales - Pixel RPG Adventure - NFT Play to Earn" property="og:image:alt" />
           <link rel="icon" href="/favicon.ico" />
           <link href="https://foxtalesrpg.com/" rel="canonical" />
-          <meta content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" name="description"></meta>
+          <meta content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" name="description" />
           <link rel="preload" as="image" href="/original-fox-000-social-network.png" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@foxtalesrpg" />
+          <meta name="twitter:creator" content="@foxtalesrpg" />
+          <meta name="twitter:title" content="Fox Tales - Pixel RPG Adventure - NFT Play to Earn" />
+          <meta name="twitter:description" content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" />
+          <meta name="twitter:image" content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg"/>
         </Head>
-
         <main>
           <div className="header">
             <h1 className="title">
