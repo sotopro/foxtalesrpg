@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Page from '../components/Page'
 import * as fbq from '../lib/fpixel'
 export default function Home() {
-  const handleClick = () => {
-    fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD' })
+  const handleClick = (value) => {
+    fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
   }
   return (
     <Page>
@@ -17,10 +17,10 @@ export default function Home() {
         <main>
           <div className="header">
             <h1 className="title">
-              Welcome to <a href="https://opensea.io/collection/foxtalesrpg">Fox Tales - RPG Adventure!</a>
+              Welcome to <a href="https://opensea.io/collection/foxtalesrpg" onClick={handleClick('title')}>Fox Tales - RPG Adventure!</a>
             </h1>
           </div>
-          <a className="pixel-button" href="https://opensea.io/collection/foxtalesrpg"  onClick={handleClick}>Buy on Open Sea</a>
+          <a className="pixel-button" href="https://opensea.io/collection/foxtalesrpg"  onClick={handleClick('button')}>Buy on Open Sea</a>
           <p className="description">
           It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure.
           Fox Tales - RPG Adventure comes with an exclusive collection. 
