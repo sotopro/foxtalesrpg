@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Page from '../components/Page'
-import Image from 'next/image'
-import CardImage from '../public/Card-000.png'
-import * as fbq from '../lib/fpixel'
+// import * as fbq from '../lib/fpixel'
 export default function Home() {
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
@@ -43,11 +41,9 @@ export default function Home() {
             Each of the characters is unique generated on the Solana blockchain.  
           </div>
           <div className='image-container'>
-            <Image
-              src={CardImage}
-              alt="Picture of the author"
-              layout='responsive'
-              placeholder='blur'
+            <img
+              src='/Card-000.png'
+              alt='000-original-fox'
             />
           </div>
         </section>
@@ -149,6 +145,7 @@ export default function Home() {
             justify-content: center;
             align-items: center;
             color: #000;
+            text-align: center;
           }
 
           a {
@@ -202,6 +199,11 @@ export default function Home() {
           }
           .image-container {
             flex: 0.25;
+          }
+          .image-container img {
+            width: 100%;
+            object-fit: cover;
+            object-position: bottom;         
           }
 
           .grid {
@@ -319,6 +321,12 @@ export default function Home() {
               margin: 0;
               flex-direction: column;
             }
+          }
+          .roadmap {
+            flex-direction: column;
+          }
+          .image-container img {
+            margin: 24px 0;
           }
         `}</style>
 
