@@ -321,12 +321,12 @@ export default function Home() {
               margin: 0;
               flex-direction: column;
             }
-          }
-          .roadmap {
+            .roadmap {
             flex-direction: column;
           }
           .image-container img {
             margin: 24px 0;
+          }
           }
         `}</style>
 
