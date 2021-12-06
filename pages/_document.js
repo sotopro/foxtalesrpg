@@ -21,6 +21,12 @@ export default class MyDocument extends Document {
               src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
             />
           </noscript>
+          <link
+            rel="preload"
+            href="/fonts/Pixeled.ttf"
+            as="font"
+            crossOrigin=""
+          />
         </Head>
         <body>
           <Main />
