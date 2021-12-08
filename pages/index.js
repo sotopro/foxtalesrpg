@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Page from '../components/Page'
 // import * as fbq from '../lib/fpixel'
-export default function Home({isMobileView}) {
+const Home = ({deviceType }) => {
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
   // }
-
   return (
     <Page>
       <div className="container">
@@ -30,7 +29,7 @@ export default function Home({isMobileView}) {
           <meta name="twitter:image" content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg"/>
         </Head>
         <div className='banner'>
-          {isMobileView ? (
+          {deviceType === 'mobile' ? (
             <div className="inner-card">
               <img src="/Card-000.png" alt="Original Fox Card" />
             </div>
@@ -512,15 +511,17 @@ export default function Home({isMobileView}) {
   )
 }
 
-Home.getInitialProps = ( ctx ) =>{
-  let isMobileView = (ctx.req
-    ? ctx.req.headers['user-agent']
-    : navigator.userAgent).match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-    )
-    
-    //Returning the isMobileView as a prop to the component for further use.
-    return {
-      isMobileView: Boolean(isMobileView)
+export const getServerSideProps = async (context) => {
+  const UA = context.req.headers['user-agent'];
+  const isMobile = Boolean(UA.match(
+    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+  ))
+  
+  return {
+    props: {
+      deviceType: isMobile ? 'mobile' : 'desktop'
     }
+  }
 }
+
+export default Home;

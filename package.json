@@ -6,7 +6,7 @@
     "dev": "next dev",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "clean": "rimraf out && rimraf build",
-    "build": "next build && next export",
+    "build": "next build",
     "deploy": "firebase deploy --only hosting",
     "start": "next start"
   },
