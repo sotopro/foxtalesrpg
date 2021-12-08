@@ -29,9 +29,10 @@ export default function Home() {
           <meta name="twitter:image" content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg"/>
         </Head>
         <main className="header">
-            <h1 className="title">
-              Welcome to <a href="https://opensea.io/collection/foxtalesrpg" onClick={() => handleClick('title')}>Fox Tales - RPG Adventure!</a>
-            </h1>
+          <img src="/fire-purple-animation-1200.gif" alt="Fire Purple Animation" />
+          <h1 className="title">
+            Welcome to <span>Fox Tales - RPG Adventure!</span>
+          </h1>
             {/* <button id="opensea-button" className="pixel-button" onClick={() => handleClick('button')}><a href="https://opensea.io/collection/foxtalesrpg" >Buy on Open Sea</a></button> */}
         </main>
         <section className='about-container'>
@@ -98,16 +99,21 @@ export default function Home() {
             margin: 0 auto;
           }
           .header{
-            position: absolute;
-            top: 0;
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .header img {
+            width: 400px;
           }
           .home-slider{
             width:100%;
-            height:100vh;
+            height:auto;
             min-height: 650px;
-            background-image: url("/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg");
+            background-image: url("/banner-top-fox-tales-rpg.png");
             background-repeat:no-repeat;
             background-position:center center;
             background-size: auto;
@@ -153,16 +159,9 @@ export default function Home() {
             text-decoration: none;
           }
 
-          .title a {
+          .title span {
             color: #37946e;
-            text-decoration: underline ;
             line-height: 2.5em;
-          }
-
-          .title a:hover,
-          .title a:focus,
-          .title a:active {
-            text-decoration: underline;
           }
 
           .title {
