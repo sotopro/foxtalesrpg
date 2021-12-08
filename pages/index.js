@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Head from 'next/head'
 import Page from '../components/Page'
+import useDeviceDetect from '../hooks/useDeviceDetect'; 
 // import * as fbq from '../lib/fpixel'
-const Home = ({deviceType }) => {
+const Home = () => {
+  const { isMobile } = useDeviceDetect();
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
   // }
@@ -29,7 +31,7 @@ const Home = ({deviceType }) => {
           <meta name="twitter:image" content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg"/>
         </Head>
         <div className='banner'>
-          {deviceType === 'mobile' ? (
+          {isMobile  ? (
             <div className="inner-card">
               <img src="/Card-000.png" alt="Original Fox Card" />
             </div>
@@ -509,19 +511,6 @@ const Home = ({deviceType }) => {
       </div>
     </Page>
   )
-}
-
-export const getServerSideProps = async (context) => {
-  const UA = context.req.headers['user-agent'];
-  const isMobile = Boolean(UA.match(
-    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-  ))
-  
-  return {
-    props: {
-      deviceType: isMobile ? 'mobile' : 'desktop'
-    }
-  }
 }
 
 export default Home;
