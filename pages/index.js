@@ -2,25 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Page from '../components/Page'
 // import * as fbq from '../lib/fpixel'
-export default function Home() {
+export default function Home({isMobileView}) {
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
   // }
-
-  const [width, setWidth] = useState(null);
-
-  
-  useEffect(() => {
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-        window.removeEventListener('resize', handleWindowSizeChange);
-    }
-  }, []);
-
-const isMobile = width <= 768;
 
   return (
     <Page>
@@ -45,7 +30,7 @@ const isMobile = width <= 768;
           <meta name="twitter:image" content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg"/>
         </Head>
         <div className='banner'>
-          {isMobile ? (
+          {isMobileView ? (
             <div className="inner-card">
               <img src="/Card-000.png" alt="Original Fox Card" />
             </div>
@@ -525,4 +510,17 @@ const isMobile = width <= 768;
       </div>
     </Page>
   )
+}
+
+Home.getInitialProps = ( ctx ) =>{
+  let isMobileView = (ctx.req
+    ? ctx.req.headers['user-agent']
+    : navigator.userAgent).match(
+      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    )
+    
+    //Returning the isMobileView as a prop to the component for further use.
+    return {
+      isMobileView: Boolean(isMobileView)
+    }
 }
