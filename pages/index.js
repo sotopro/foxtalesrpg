@@ -298,7 +298,14 @@ export default function Home() {
           }
           @media (max-width: 411px) {
             .container {
-              max-width: 90%;
+            background: rgb(235 225 215);
+              max-width: 100%;
+            }
+            .description {
+              width: 85%;
+            }
+            .roadmap {
+              width: 85%;
             }
             .home-slider{
               margin-top: 9rem;
@@ -315,7 +322,7 @@ export default function Home() {
               margin: 0 auto;
             }
             .title {
-              font-size: 2.5rem;
+              font-size: 2rem;
             }
             .about-container {
               margin: 0;
@@ -333,8 +340,8 @@ export default function Home() {
         <style jsx global>{`
           html,
           body {
-            padding: 0;
-            margin: 0;
+            padding: 0 !important;
+            margin: 0 !important;
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
               Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
               sans-serif;
