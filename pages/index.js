@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Page from '../components/Page'
 // import * as fbq from '../lib/fpixel'
@@ -5,10 +6,25 @@ export default function Home() {
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
   // }
+
+  const [width, setWidth] = useState(null);
+
+  
+  useEffect(() => {
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+        window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+const isMobile = width <= 768;
+
   return (
     <Page>
       <div className="container">
-        <div className="home-slider" />
         <Head className="header">
           <title>Fox Tales - Pixel RPG Adventure - NFT Play to Earn</title>
           <meta content="https://foxtalesrpg.com" property="og:url" />
@@ -28,13 +44,39 @@ export default function Home() {
           <meta name="twitter:description" content="It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure. Each of the characters is unique generated on the Ethereum blockchain" />
           <meta name="twitter:image" content="https://foxtalesrpg.com/foxtalerpg-rpg-adventure-nft-play-to-earn.jpg"/>
         </Head>
-        <main className="header">
+        <div className='banner'>
+          {isMobile ? (
+            <div className="inner-card">
+              <img src="/Card-000.png" alt="Original Fox Card" />
+            </div>
+          ) : (
+            <>
+            <div className="container-card">
+            <div className="inner-card">
+              <img src="/Card-001.png" alt="Winter Fox Card" />
+            </div>
+          </div>
+          <div className="container-card">
+            <div className="inner-card">
+              <img src="/Card-000.png" alt="Original Fox Card" />
+            </div>
+          </div>
+          <div className="container-card">
+            <div className="inner-card">
+              <img src="/Card-002.png" alt="Dark Shadow Fox Card" />
+            </div>
+          </div>
+            </>
+          )}
+          
+        </div>
+        <div className="header">
           <img src="/fire-purple-animation-1200.gif" alt="Fire Purple Animation" />
           <h1 className="title">
             Welcome to <span>Fox Tales - RPG Adventure!</span>
           </h1>
             {/* <button id="opensea-button" className="pixel-button" onClick={() => handleClick('button')}><a href="https://opensea.io/collection/foxtalesrpg" >Buy on Open Sea</a></button> */}
-        </main>
+        </div>
         <section className='about-container'>
           <div className="description">
           <h2>Be the fox you want to be</h2>
@@ -98,26 +140,86 @@ export default function Home() {
             max-width: 1200px;
             margin: 0 auto;
           }
+          .banner {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: flex-end;
+            width: 100%;
+            height: 75vh;
+          }
+          .banner img {
+            width: 325px;
+          }
+          
+          .inner-card {
+            height: 486px;
+            width: 322px;
+            background-color: #ebe1d7;
+            box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s;
+            -webkit-transition: transform 0.5s;
+            -moz-transition: transform 0.5s;
+            -o-transition: transform 0.5s;
+          }
+          .container-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: white;
+            transition: 1s box-shadow;
+          }
+          .banner .container-card:nth-of-type(2) {
+            margin-bottom: 150px;
+          }
+
+          .container-card:hover {
+            box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+          }
+
+          .container-card:hover::before, .container-card:hover::after {
+            display: block;
+            content: '';
+            width: 328px;
+            height: 486px;
+            position: absolute;
+            background: #b980ff;
+            border-radius: 5px;
+            z-index: -1;
+            animation: 1s clockwise infinite;
+          }
+          .banner .container-card:nth-of-type(1):hover::before, .banner .container-card:nth-of-type(1):hover::after {
+            background: #d4afb9 !important;
+          }
+          .banner .container-card:nth-of-type(2):hover::before, .banner .container-card:nth-of-type(2):hover::after {
+            background: #00d196 !important;
+          }
+
+          .container-card:hover:after {
+            background: #4b3f72;
+            animation: 2s counterclockwise infinite;
+          }
+          .banner .container-card:nth-of-type(1):hover:after {
+            background: #d592b9 !important;
+          }
+          .banner .container-card:nth-of-type(2):hover:after {
+            background: #37946e !important;
+          }
           .header{
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
           }
+
           .header img {
-            width: 400px;
+            width: 325px;
           }
-          .home-slider{
-            width:100%;
-            height:auto;
-            min-height: 650px;
-            background-image: url("/banner-top-fox-tales-rpg.png");
-            background-repeat:no-repeat;
-            background-position:center center;
-            background-size: auto;
-          }
+          
           .roadmap {
             display: flex;
             flex-direction: row;
@@ -289,6 +391,83 @@ export default function Home() {
               background-position-y: -480px;
             }
           }
+          @keyframes clockwise {
+          0% {
+            top: -5px;
+            left: 0;
+          }
+          12% {
+            top: -2px;
+            left: 2px;
+          }
+          25% {
+            top: 0;
+            left: 5px;    
+          }
+          37% {
+            top: 2px;
+            left: 2px;
+          }
+          50% {
+            top: 5px;
+            left: 0;    
+          }
+          62% {
+            top: 2px;
+            left: -2px;
+          }
+          75% {
+            top: 0;
+            left: -5px;
+          }
+          87% {
+            top: -2px;
+            left: -2px;
+          }
+          100% {
+            top: -5px;
+            left: 0;    
+          }
+        }
+
+        @keyframes counterclockwise {
+          0% {
+            top: -5px;
+            right: 0;
+          }
+          12% {
+            top: -2px;
+            right: 2px;
+          }
+          25% {
+            top: 0;
+            right: 5px;    
+          }
+          37% {
+            top: 2px;
+            right: 2px;
+          }
+          50% {
+            top: 5px;
+            right: 0;    
+          }
+          62% {
+            top: 2px;
+            right: -2px;
+          }
+          75% {
+            top: 0;
+            right: -5px;
+          }
+          87% {
+            top: -2px;
+            right: -2px;
+          }
+          100% {
+            top: -5px;
+            right: 0;    
+          }
+        }
           @media (max-width: 600px) {
             .grid {
               width: 100%;
@@ -305,13 +484,6 @@ export default function Home() {
             }
             .roadmap {
               width: 85%;
-            }
-            .home-slider{
-              margin-top: 9rem;
-              min-height: 300px;
-              background-size: contain;
-              background-image: url("/original-fox-000-social-network.png");
-
             }
             .header {
                 width: 90%;
