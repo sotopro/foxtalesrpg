@@ -54,9 +54,22 @@ const Home = () => {
           </div>
             </>
           )}
-          
         </div>
         <div className="header">
+          <div className='social-networks'>
+            <a href="https://www.twitter.com/foxtalesrpg" target="_blank" rel="noopener noreferrer">
+              <img src="/twitter.png" alt='twitter'/>
+            </a>
+            <a href="https://www.youtube.com/channel/UC6vQ3CfVdnCJ0ilDXlIO7og" target="_blank" rel="noopener noreferrer">
+              <img src="/youtube.png" alt='youtube'/>
+            </a>
+            <a href="https://www.instagram.com/foxtalesrpg" target="_blank" rel="noopener noreferrer">
+              <img src="/instagram.png" alt='instagram'/>
+            </a>
+            <a href="https://www.facebook.com/foxtalesrpg" target="_blank" rel="noopener noreferrer">
+              <img src="/facebook.png" alt='facebook'/>
+            </a>
+          </div>
           <img src="/fire-purple-animation-1200.gif" alt="Fire Purple Animation" />
           <h1 className="title">
             Welcome to <span>Fox Tales - RPG Adventure!</span>
@@ -73,6 +86,30 @@ const Home = () => {
             <img
               src='/Card-000.png'
               alt='000-original-fox'
+            />
+          </div>
+        </section>
+        <section className='join-us-container'>
+        <div className='image-container'>
+            <img
+              src='/original-fox-animation.gif'
+              alt='Original fox animation'
+            />
+          </div>
+          <div className="description">
+          <h2>Why join us?</h2>
+          2D universe with unique stories, Fox Tales RPG is destined to be one of the most fun games using blockchain technology. Enter the world of in the Fox such RPG live the adventure. 
+          </div>
+        </section>
+        <section className='about-container'>
+          <div className="description">
+          <h2>Gameplay Mechanic</h2>
+          Each NFT has different uses and mechanics within the game, your way of playing will be unique. Adapt and survive in the world of Fox Tales RPG.   
+          </div>
+          <div className='image-container'>
+            <img
+              src='/gems-types.gif'
+              alt='Types and Gameplay Mechanic'
             />
           </div>
         </section>
@@ -205,7 +242,27 @@ const Home = () => {
           .header img {
             width: 325px;
           }
-          
+          .social-networks {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+          }
+          .social-networks > a {
+            text-decoration: none;
+            outline: none;
+            cursor: pointer;
+            opacity: 1;
+            transition: 0.2s opacity;
+          }
+          .social-networks > a:hover {
+            opacity: 0.6;
+          }
+          .social-networks > a > img {
+            width: 60px;
+          }
+
           .roadmap {
             display: flex;
             flex-direction: row;
@@ -274,6 +331,25 @@ const Home = () => {
             flex-direction: row;
             flex: 1;
             justify-content: space-around;
+          }
+
+          .join-us-container {
+            display: flex;
+            margin: 0;
+            flex-direction: row;
+            flex: 1;
+            justify-content: space-around;
+          }
+          .join-us-container > .image-container {
+            flex: 0.25;
+          }
+          .join-us-container > .description {
+            display: flex;
+            flex-direction: column;
+            line-height: 3em;
+            font-size: 1rem;
+            flex: 0.5 !important;
+            text-align: justify;
           }
 
           .description {
@@ -455,8 +531,14 @@ const Home = () => {
           }
         }
           @media (max-width: 600px) {
+            .social-networks {
+              margin: 32px 0 0 0;
+            }
             .grid {
               width: 100%;
+              flex-direction: column;
+            }
+            .join-us-container {
               flex-direction: column;
             }
           }
