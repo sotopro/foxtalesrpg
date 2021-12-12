@@ -4,11 +4,16 @@ import Page from '../components/Page';
 import useDeviceDetect from '../hooks/useDeviceDetect'; 
 import { motion } from 'framer-motion';
 // import * as fbq from '../lib/fpixel'
+
 const Home = () => {
   const { isMobile } = useDeviceDetect();
-  const animations = {
+  const animationY = {
     initial: { y: 400, scale: 0, opacity: 0 },
     whileInView: { opacity: 1,  y: 0, scale: 1 },
+  }
+  const animationX = {
+    initial: { x: -400, scale: 0, opacity: 0 },
+    whileInView: { opacity: 1,  x: 0, scale: 1 },
   }
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
@@ -61,7 +66,7 @@ const Home = () => {
           )}
         </div>
         <div className="header">
-          <motion.div className='social-networks' {...animations}>
+          <motion.div className='social-networks' {...animationY}>
             <a href="https://www.twitter.com/foxtalesrpg" target="_blank" rel="noopener noreferrer">
               <img src="/twitter.png" alt='twitter'/>
             </a>
@@ -75,13 +80,13 @@ const Home = () => {
               <img src="/facebook.png" alt='facebook'/>
             </a>
           </motion.div>
-          <motion.img src="/fire-purple-animation-1200.gif" alt="Fire Purple Animation" {...animations}/>
+          <motion.img src="/fire-purple-animation-1200.gif" alt="Fire Purple Animation" {...animationY}/>
           <h1 className="title">
             Welcome to <span>Fox Tales - RPG Adventure!</span>
           </h1>
             {/* <button id="opensea-button" className="pixel-button" onClick={() => handleClick('button')}><a href="https://opensea.io/collection/foxtalesrpg" >Buy on Open Sea</a></button> */}
         </div>
-        <motion.section className='about-container' {...animations}>
+        <motion.section className='about-container' {...animationX}>
           <div className="description">
           <h2>Be the fox you want to be</h2>
             It is a unique collection of NFT characters that will allow you to participate in the world and lore of Fox Tales - RPG Adventure.
@@ -95,7 +100,7 @@ const Home = () => {
             />
           </div>
         </motion.section>
-        <motion.section className='join-us-container' {...animations}>
+        <motion.section className='join-us-container' {...animationX}>
         <div className='image-container'>
             <img
               src='/original-fox-animation.gif'
@@ -107,7 +112,7 @@ const Home = () => {
           2D universe with unique stories, Fox Tales RPG is destined to be one of the most fun games using blockchain technology. Enter the world of in the Fox such RPG live the adventure. 
           </div>
         </motion.section>
-        <motion.section className='about-container' {...animations}>
+        <motion.section className='about-container' {...animationY}>
           <div className="description">
           <h2>Gameplay Mechanic</h2>
           Each NFT has different uses and mechanics within the game, your way of playing will be unique. Adapt and survive in the world of Fox Tales RPG.   
@@ -119,7 +124,7 @@ const Home = () => {
             />
           </div>
         </motion.section>
-        <motion.section className='coin-container' {...animations}>
+        <motion.section className='coin-container' {...animationY}>
         <div className='image-container'>
             <img
               className='coin-image'
@@ -132,7 +137,7 @@ const Home = () => {
           There is a proportion of the tokens reserved for user incentives. By completing the main quests, achievement system , side missions, and activities, players could earn profit from the game. 
           </div>
         </motion.section>
-        <motion.section className="roadmap" {...animations}>
+        <motion.section className="roadmap" {...animationX}>
           <h2 className="content-title">
             Roadmap
             <br />
@@ -148,7 +153,7 @@ const Home = () => {
             <li>Whitepaper</li>
           </ul>
         </motion.section>
-        <motion.section className="coming-soon" {...animations}>
+        <motion.section className="coming-soon" {...animationY}>
           <h2>
             Coming Soon!
           </h2>
