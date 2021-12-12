@@ -7,13 +7,19 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
   const { isMobile } = useDeviceDetect();
-  const animationY = {
+  const animationY = !isMobile ? {
     initial: { y: 400, scale: 0, opacity: 0 },
     whileInView: { opacity: 1,  y: 0, scale: 1 },
+  } : {
+    initial: { y: 400, scale: 0, opacity: 0 },
+    animate: { opacity: 1,  y: 0, scale: 1 },
   }
-  const animationX = {
+  const animationX = !isMobile ? {
     initial: { x: -400, scale: 0, opacity: 0 },
     whileInView: { opacity: 1,  x: 0, scale: 1 },
+  } : {
+    initial: { x: -400, scale: 0, opacity: 0 },
+    animate: { opacity: 1,  x: 0, scale: 1 },
   }
   // const handleClick = (value) => {
   //   fbq.event('OpenSea', { url: 'https://opensea.io/collection/foxtalesrpg', value: 1, currency: 'USD', comeFrom: value})
